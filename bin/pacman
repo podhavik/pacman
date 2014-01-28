@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'pacman/cli'
+
+Sudoku::CLI.new(ARGV)
