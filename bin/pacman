@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'pacman/cli'
+require 'rubygems'
+require 'pacman'
 
-Sudoku::CLI.new(ARGV)
+Pacman::GameWindow.run

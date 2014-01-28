@@ -1,6 +1,8 @@
 # Pacman
 
-TODO: Write a gem description
+Game based on pacman using gosu.
+
+Windows executable: https://dl.dropboxusercontent.com/u/54612379/pacman.rar
 
 ## Installation
 
@@ -18,7 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run it:
+    $ pacman
 
 ## Contributing
 
