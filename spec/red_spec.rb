@@ -32,21 +32,4 @@ describe Pacman::Red do
     @red.move(a, player, nil)
   end
 
-  it 'should change state' do
-    player = Pacman::Player.new(@win)
-    player.warp(8, 8)
-    row, col = 100, 100
-    a = [[0] * row] * col
-    @red.warp(20, 0)
-    @red.move(a, player, nil)
-    @red.state.should == Pacman::Red::SCATTER
-    329.times do
-      @red.move(a, player, nil)
-    end
-    @red.state.should == Pacman::Red::CHASE
-    1650.times do
-      @red.move(a, player, nil)
-    end
-    @red.state.should == Pacman::Red::SCATTER
-  end
 end

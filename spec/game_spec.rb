@@ -4,7 +4,7 @@ require 'spec_helper'
 describe Pacman::Game do
   before do
     @window = FakeWindow.new
-    @game = Pacman::Game.new(@window)
+    @game = Pacman::Game.new(@window, {})
   end
   
   it 'should load map' do
@@ -22,5 +22,4 @@ describe Pacman::Game do
   after do
     @window.close
   end
-
 end
