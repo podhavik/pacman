@@ -21,7 +21,9 @@ Or install it yourself as:
 ## Usage
 
 Run it:
-    $ pacman --file <file_name>
+
+    $ pacman --file file_name
+
 File should be in levels folder.
 ## Contributing
 
