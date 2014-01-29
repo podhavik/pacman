@@ -61,8 +61,13 @@ module Pacman
       end
     end
 
-    def initialize(window)
-      path = ROOT_PATH + 'lvl.txt'
+    def initialize(window, opts)
+      path = opts[:file]
+      if path == nil
+        path = ROOT_PATH + '/levels/lvl.txt'
+      else
+        path = ROOT_PATH + '/levels/' + path
+      end      
       map = File.foreach(path).map { |line| line.split(' ') }
       @player = Player.new(window)
       @player.warp(320, 240)

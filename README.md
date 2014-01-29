@@ -21,8 +21,8 @@ Or install it yourself as:
 ## Usage
 
 Run it:
-    $ pacman
-
+    $ pacman --file <file_name>
+File should be in levels folder.
 ## Contributing
 
 1. Fork it ( http://github.com/<my-github-username>/pacman/fork )

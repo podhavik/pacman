@@ -11,8 +11,8 @@ module Pacman
   # game window implements game loop
   class GameWindow < Gosu::Window
     attr_reader :fps
-    def init_game
-      @game = Game.new(self)
+    def init_game(opts)
+      @game = Game.new(self, opts)
       @screen = Screen.new(self, @game)
       @last_millis =  Gosu.milliseconds
       @fps = 0
@@ -24,10 +24,10 @@ module Pacman
       @count = 0
     end
 
-    def initialize
+    def initialize(opts)
       super(16 * 28, 16 * 36, false, 18)
       self.caption = 'Gosu Pac-man'
-      init_game
+      init_game(opts)
     end
 
     def update
@@ -74,8 +74,8 @@ module Pacman
       end
     end
 
-    def self.run
-      new.show
+    def self.run(opts)
+      new(opts).show
     end
   end
 end

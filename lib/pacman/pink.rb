@@ -11,15 +11,7 @@ module Pacman
       @enter_field = true
       @pass_center = false
       @vel_x = -@speed
-      @scatter_target = Coordinate.new(3, 3)
-      @timer = 0
-      @state = SCATTER
-    end
-
-    def set_target(grid, player, ghosts)
-      @target = player.grid_pos.neighbor(player.get_direction)
-      @target = @target.neighbor(player.get_direction)
-      @target = @target.neighbor(player.get_direction)
+      @strategy = PinkStrategy.new()
     end
   end
 end

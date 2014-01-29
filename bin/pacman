@@ -1,6 +1,12 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'pacman'
+# require 'pacman'
+require_relative '../lib/pacman.rb'
+require 'trollop'
 
-Pacman::GameWindow.run
+opts = Trollop::options do
+  opt :file, "Level file name", :type => :string        # string, default nil
+end
+
+Pacman::GameWindow.run(opts)

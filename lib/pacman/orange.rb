@@ -11,17 +11,7 @@ module Pacman
       @enter_field = true
       @pass_center = false
       @vel_x = -@speed
-      @scatter_target = Coordinate.new(3, GRIDY - 3)
-      @timer = 0
-      @state = SCATTER
-    end
-
-    def set_target(grid, player, ghosts)
-      if player.grid_pos.distance(grid_pos) > 7
-        @target = player.grid_pos
-      else
-        @target = @scatter_target
-      end
+      @strategy = OrangeStrategy.new()
     end
   end
 end

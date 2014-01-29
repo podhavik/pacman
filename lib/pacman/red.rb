@@ -2,10 +2,6 @@
 module Pacman
   # Red ghost
   class Red < GameObject
-    SCATTER = 1
-    CHASE = 2
-    AFRAID = 3
-    DEAD = 4
     attr_reader :speed, :state
     def initialize(window)
       path = ROOT_PATH + '/media/red.png'
@@ -16,9 +12,7 @@ module Pacman
       @enter_field = true
       @pass_center = false
       @vel_x = -@speed
-      @scatter_target = Coordinate.new(GRIDX - 3, 3)
-      @timer = 0
-      @state = SCATTER
+      @strategy = RedStrategy.new()
     end
 
     def draw
@@ -100,31 +94,13 @@ module Pacman
       end
     end
 
-    def set_target(grid, player, ghosts)
-      @target = player.grid_pos
-    end
-
     def kill_pacman(player)
       player.kill! if grid_x == player.grid_x && grid_y == player.grid_y
     end
 
     def move(grid, player, ghosts)
-      @timer += 1
-      if @timer <= 1650 && @state == CHASE
-        set_target(grid, player, ghosts)
-        if @timer == 1650
-          @timer = 0
-          @state = SCATTER
-        end
-      end
-
-      if @timer <= 330 && @state == SCATTER
-        @target = @scatter_target
-        if @timer == 330
-          @timer = 0
-          @state = CHASE
-        end
-      end
+      @strategy.tick(grid, player, ghosts)
+      @target = @strategy.target
 
       # pokud jsme vstoupili na nove policko
       change_dir(grid) if @enter_field == true
